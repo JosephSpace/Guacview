@@ -1,0 +1,168 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr">
+    <title>Applications</title>    
+ <body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</body>
+
+<div class="contain">
+<nav class="navbar navbar-expand-lg navbar-mainbg">
+    <a class="navbar-brand navbar-logo" href="{{ url_for('index') }}" style="padding:0;"><img src="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr" alt="" style="height:2em">Guacomole View</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars text-white"></i></button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <div class="hori-selector" style="top: 0px; left: 1409.02px; height: 62px; width: 193.797px;"><div class="left"></div><div class="right"></div></div>
+          <li class="nav-item">
+            <a href="{{ url_for('index') }}"><i class="fas fa-home"></i>Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url_for('connections') }}"><i class="fas fa-network-wired"></i>Connections</a>
+          </li>
+
+          <li class="nav-item active">
+			<a class="nav-link disabled" href="javascript:void(0);" tabindex="-1" aria-disabled="true"><i class="fas fa-desktop"></i>Applications</a>
+          </li>
+
+		  <li class="nav-item">
+			<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+		</li>
+
+      </ul>
+  </div>
+</nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<main>
+	<div class="container-lg mt-4">
+		<div class="row">
+			<!-- Uygulama 1 -->
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-header bg-primary text-white">
+						<h5 class="mb-0">Raporlama Portalı</h5>
+					</div>
+					<div class="card-body text-center">
+						<i class="fas fa-desktop fa-4x mb-3"></i>
+						<p>SSL-VPN RAPOR</p>
+						<div class="btn-group mt-2" role="group">
+							<button type="button" class="btn btn-success start-app" data-app-id="1" data-app-path="app.py">Start</button>
+							<button type="button" class="btn btn-danger stop-app" data-app-id="1" disabled>Stop</button>
+						</div>
+						<div class="status-indicator mt-2">Durum: <span class="badge badge-secondary">Kapalı</span></div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Uygulama 2 -->
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-header bg-success text-white">
+						<h5 class="mb-0">Mesaj Bombalama</h5>
+					</div>
+					<div class="card-body text-center">
+						<i class="fas fa-file-code fa-4x mb-3"></i>
+						<p>SMS BOMBER</p>
+						<div class="btn-group mt-2" role="group">
+							<button type="button" class="btn btn-success start-app" data-app-id="2" data-app-path=enough.py">Start</button>
+							<button type="button" class="btn btn-danger stop-app" data-app-id="2" disabled>Stop</button>
+						</div>
+						<div class="status-indicator mt-2">Durum: <span class="badge badge-secondary">Kapalı</span></div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Uygulama 3 -->
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-header bg-info text-white">
+						<h5 class="mb-0">IT Desk</h5>
+					</div>
+					<div class="card-body text-center">
+						<i class="fas fa-database fa-4x mb-3"></i>
+						<p>Sistem Analizi</p>
+						<div class="btn-group mt-2" role="group">
+							<button type="button" class="btn btn-success start-app" data-app-id="3" data-app-path="itdesk.exe">Start</button>
+							<button type="button" class="btn btn-danger stop-app" data-app-id="3" disabled>Stop</button>
+						</div>
+						<div class="status-indicator mt-2">Durum: <span class="badge badge-secondary">Kapalı</span></div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Uygulama 4 -->
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-header bg-warning text-dark">
+						<h5 class="mb-0">Uygulama 4</h5>
+					</div>
+					<div class="card-body text-center">
+						<i class="fas fa-chart-bar fa-4x mb-3"></i>
+						<p>Uygulama 4 Açıklaması</p>
+						<div class="btn-group mt-2" role="group">
+							<button type="button" class="btn btn-success start-app" data-app-id="4" data-app-path="C:\Program Files\App4\app4.exe">Start</button>
+							<button type="button" class="btn btn-danger stop-app" data-app-id="4" disabled>Stop</button>
+						</div>
+						<div class="status-indicator mt-2">Durum: <span class="badge badge-secondary">Kapalı</span></div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Uygulama 5 -->
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-header bg-danger text-white">
+						<h5 class="mb-0">Uygulama 5</h5>
+					</div>
+					<div class="card-body text-center">
+						<i class="fas fa-server fa-4x mb-3"></i>
+						<p>Uygulama 5 Açıklaması</p>
+						<div class="btn-group mt-2" role="group">
+							<button type="button" class="btn btn-success start-app" data-app-id="5" data-app-path="C:\Program Files\App5\app5.exe">Start</button>
+							<button type="button" class="btn btn-danger stop-app" data-app-id="5" disabled>Stop</button>
+						</div>
+						<div class="status-indicator mt-2">Durum: <span class="badge badge-secondary">Kapalı</span></div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Uygulama 6 -->
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-header bg-secondary text-white">
+						<h5 class="mb-0">Uygulama 6</h5>
+					</div>
+					<div class="card-body text-center">
+						<i class="fas fa-cogs fa-4x mb-3"></i>
+						<p>Uygulama 6 Açıklaması</p>
+						<div class="btn-group mt-2" role="group">
+							<button type="button" class="btn btn-success start-app" data-app-id="6" data-app-path="C:\Program Files\App6\app6.exe">Start</button>
+							<button type="button" class="btn btn-danger stop-app" data-app-id="6" disabled>Stop</button>
+						</div>
+						<div class="status-indicator mt-2">Durum: <span class="badge badge-secondary">Kapalı</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="{{ url_for('static', filename='js/applications.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+</main>
+</div>
+</body>
+</html>

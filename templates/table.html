@@ -1,0 +1,111 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr">
+    <title>Guacomole View</title>    
+ <body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+</body>
+
+<div class="contain">
+<nav class="navbar navbar-expand-lg navbar-mainbg">
+    <a class="navbar-brand navbar-logo" href="{{ url_for('index') }}" style="padding:0;"><img src="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr" alt="" style="height:2em">Guacomole View</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars text-white"></i></button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <div class="hori-selector" style="top: 0px; left: 1409.02px; height: 62px; width: 193.797px;"><div class="left"></div><div class="right"></div></div>
+          <li class="nav-item">
+			<a href="{{ url_for('index') }}"><i class="fas fa-home"></i>Home</a>
+          </li>
+
+          <li class="nav-item">
+			<a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+          </li>
+
+          <li class="nav-item active">
+			<a class="nav-link disabled" href="javascript:void(0);" tabindex="-1" aria-disabled="true"><i class="fas fa-network-wired"></i>Connections</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url_for('applications') }}"><i class="fas fa-desktop"></i>Applications</a>
+          </li>
+
+		  <li class="nav-item">
+			<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+		</li>
+
+      </ul>
+  </div>
+</nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<main>
+                <div class="container-lg">
+                    <div class="row card" style="width:88%; margin-top:1%; margin-bottom:2%;  margin-left:6%; ">
+                        <div class="col" style="padding:5%;padding-top:2%;padding-bottom:2%;">
+                            <div id="table_id_wrapper" class="dataTables_wrapper no-footer"><div class="dt-buttons">      <button class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>Copy</span></button> <button class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>CSV</span></button> <button class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>Excel</span></button> <button class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>PDF</span></button> </div><div class="clear"></div><div class="dataTables_length" id="table_id_length"><label>Show <select name="table_id_length" aria-controls="table_id" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="table_id_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="table_id"></label></div><table id="table_id" class="display cell-border table-border dataTable no-footer" role="grid" aria-describedby="table_id_info">
+                            <thead><tr style="text-align:center;" role="row"><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 132px;">ID</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Username: activate to sort column ascending" style="width: 323px;">Username</th><th scope="col" class="table-dark sorting_asc" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Terminal: activate to sort column descending" style="width: 287px;">Terminal</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Start Time: activate to sort column ascending" style="width: 331px;">Start Time</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 265px;">Actions</th></tr></thead>
+                    <tbody><tr class="odd"><td valign="top" colspan="5" class="dataTables_empty">No data available in table</td></tr></tbody></table><div class="dataTables_info" id="table_id_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div><div class="dataTables_paginate paging_simple_numbers" id="table_id_paginate"><a class="paginate_button previous disabled" aria-controls="table_id" data-dt-idx="0" tabindex="0" id="table_id_previous">Previous</a><span></span><a class="paginate_button next disabled" aria-controls="table_id" data-dt-idx="1" tabindex="0" id="table_id_next">Next</a></div></div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+
+                <script>
+                $(document).ready(function(){
+                $('.kill-button').click(function(){
+                    var self = this;
+                    $.notify("Terminating terminal connection...",{style: 'Info',"globalPosition":'bottom left',});
+                    $.ajax({
+                    url:/killconn/,
+                    type:'post',
+                    data:{
+                        conn_id: $(this).val(),
+                        csrfmiddlewaretoken:'68WwzsQOgnXlNZgdcrcbdzQLCKkRKUh9Y0ASWwxfe3ehIBkGUKCJyVDPNxezccR1'
+                    },
+                    success:function(response){
+                        $(self).parent().children(".sccss-msg").show(1000);
+                        $(self).hide(1000);
+                        $.notify("Termination succeeded.",{style: 'Success',"globalPosition":'bottom left',});
+                    },
+                    });
+                });
+                });
+                </script>
+                <script>
+                    $(document).ready( function () {
+                    $('#table_id').DataTable({
+                    order: [[2, 'asc']],
+                    dom: 'B<"clear">lfrtip',
+                    buttons: {
+                        name: 'primary',
+                        buttons: [ 'copy', 'csv', 'excel','pdf']
+                
+                        }}
+                    );
+                } );
+                </script>
+                <!--Js Links And Scripts-->
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+                <script src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.js"></script>
+                <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+                <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+
+
+                <!--Js Links And Scripts End-->
+
+            </main>
+        </div>
+        </body>
+    </html>

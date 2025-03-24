@@ -1,0 +1,81 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr">
+    <title>Guacomole View</title>    
+ <body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</body>
+
+<div class="contain">
+<nav class="navbar navbar-expand-lg navbar-mainbg">
+    <a class="navbar-brand navbar-logo" href="{{ url_for('index') }}" style="padding:0;"><img src="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr" alt="" style="height:2em">Guacomole View</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars text-white"></i></button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <div class="hori-selector" style="top: 0px; left: 1409.02px; height: 62px; width: 193.797px;"><div class="left"></div><div class="right"></div></div>
+          <li class="nav-item active">
+			<a class="nav-link disabled" href="javascript:void(0);" tabindex="-1" aria-disabled="true"><i class="fas fa-home"></i>Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url_for('connections') }}"><i class="fas fa-network-wired"></i>Connections</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url_for('applications') }}"><i class="fas fa-desktop"></i>Applications</a>
+          </li>
+
+		  <li class="nav-item">
+			<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+		</li>
+
+      </ul>
+  </div>
+</nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+    <div class="row" style="height:100%!important;width:100%!important;flex:1;">
+      <div class="col" style="max-width:10% !important;">
+      </div>
+      <div class="col">
+        <div style="background:#e9e9e9;width:50%;margin-left:25%;">
+        <h1>Ana Sayfa</h1>
+        <h3>Sistem Ses Kayıt Portalı</h3>
+        </div>
+        <div class="mycontainer">
+          <div class="main">
+        <h2>Dikkat</h2>
+            <p id="ilkparagraf">Ziraat Katılım A.Ş personellerine ait ses log kayıtlarının bulunduğu sisteme giriyorsunuz. Bu sistem üzerinden erişim hakkınız
+        mevcut değilse sistemden çıkınız. Yetkiniz olmadan yaptığınız işlemler 6698 Kişisel Verilerin Korunması Kanununa ve Anayasanın 20. maddesinin 3. fıkrasında bahsedilen kişisel verilerin korunması maddelerinin ihlaline sebebiyet verecektir.Ayrıca kişisel verilerin hukuka aykırı olarak işlenmesi, Anayasanın 17. maddesi ile güvence altına alınan kişi dokunulmazlığı, kişinin maddi ve manevi varlığını koruma ve geliştirme hakkı ile Anayasanın 20 ve 22. maddelerinde düzenlenen özel
+        hayatın gizliliği ve korunması hakkının ihlali anlamına da gelmektedir.
+        <br>
+        <br>
+        Sistem üzerinden yapılan her  türlü erişim, erişim teşebbüsü, sorgu zaman ve işlem yapan kişi özelinde anlık loglanmakta ve izlenmektedir.</p>
+          </div>
+          </div>
+      </div>
+      <div class="col" style="max-width:10% !important;">
+      </div>
+    </div>
+    <!-- Footer -->
+<footer class="page-footer font-small" style="background:#343a40;">
+  </div>
+  <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+</body>
+</html>
